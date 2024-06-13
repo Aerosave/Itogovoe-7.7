@@ -5,7 +5,9 @@ using System.Text;
 
 namespace ShopOrder
 {
-    // Абстрактный класс Delivery с инкапсулированным полем Address и свойством для доступа к нему
+    /// <summary>
+    /// Абстрактный класс Delivery с инкапсулированным полем Address и свойством для доступа к нему
+    /// </summary>
     public abstract class Delivery
     {
         private string protected_address;
@@ -23,7 +25,9 @@ namespace ShopOrder
         public abstract void DisplayInfo();
     }
 
-    // Класс HomeDelivery с переопределением метода DisplayInfo
+    /// <summary>
+    /// Класс HomeDelivery с переопределением метода DisplayInfo
+    /// </summary>
     public class HomeDelivery : Delivery
     {
         public DateTime EstimatedDeliveryTime { get; private set; }
@@ -44,7 +48,9 @@ namespace ShopOrder
         }
     }
 
-    // Класс PickPointDelivery с переопределением метода DisplayInfo
+    /// <summary>
+    /// Класс PickPointDelivery с переопределением метода DisplayInfo
+    /// </summary>
     public class PickPointDelivery : Delivery
     {
         public string PickPointName { get; private set; }
@@ -62,7 +68,9 @@ namespace ShopOrder
         }
     }
 
-    // Класс ShopDelivery с переопределением метода DisplayInfo
+    /// <summary>
+    /// Класс ShopDelivery с переопределением метода DisplayInfo
+    /// </summary>
     public class ShopDelivery : Delivery
     {
         public string ShopName { get; private set; }
@@ -78,7 +86,9 @@ namespace ShopOrder
         }
     }
 
-    // Класс Product
+    /// <summary>
+    /// Класс Product
+    /// </summary>
     public class Product
     {
         public string Name { get; private set; }
@@ -91,7 +101,10 @@ namespace ShopOrder
         }
     }
 
-    // Класс Order с использованием индексатора и перегруженных операторов
+    /// <summary>
+    /// Класс Order с использованием индексатора и перегруженных операторов
+    /// </summary>
+    /// <typeparam name="TDelivery"></typeparam>
     public class Order<TDelivery> where TDelivery : Delivery
     {
        
@@ -107,7 +120,7 @@ namespace ShopOrder
             Description = description;
             Number = GenerateOrderNumber();
         }
-        // Метод генерации номера заказа
+        /// Метод генерации номера заказа
         private string GenerateOrderNumber()
         {
             var random = new Random();
